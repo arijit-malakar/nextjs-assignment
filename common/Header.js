@@ -21,9 +21,15 @@ const Header = () => {
                 </form>
             </div>
             <div className="col-2" style={{textAlign: "right"}}>
-                <i className="bi bi-linkedin me-2"></i>
+                {/* <i className="bi bi-linkedin me-2"></i>
                 <i class="bi bi-github me-2"></i>
-                <i class="bi bi-facebook me-2"></i>
+                <i class="bi bi-facebook me-2"></i> */}
+                <Link href="/register">
+                    <i className="bi bi-person-add me-2" title="Register" style={{color: "#ffffff"}}></i>
+                </Link>
+                <Link href="/login">
+                    <i className="bi bi-person me-2" title="Login" style={{color: "#ffffff"}}></i>
+                </Link>
             </div>    
         </div>
     );
