@@ -5,7 +5,7 @@ import ProductCard from "../common/ProductCard";
 import Link from "next/link";
 
 export const getStaticProps = async () => {
-  const response = await fetch("https://fakestoreapi.com/products");
+  const response = await fetch(process.env.API_URL);
   const data = await response.json();
   return {
     props: { productData: data },
@@ -14,7 +14,6 @@ export const getStaticProps = async () => {
 
 const Products = (props) => {
   const { productData } = props;
-  console.log(productData);
   return (
     <>
       <Head>
@@ -51,7 +50,12 @@ const Products = (props) => {
                       overflow: "hidden",
                     }}
                   >
-                    <Link href={`/products/${item.id}`} style={{textDecoration: "none", color: "unset"}} >{item.title}</Link>
+                    <Link
+                      href={`/products/${item.id}`}
+                      style={{ textDecoration: "none", color: "unset" }}
+                    >
+                      {item.title}
+                    </Link>
                   </h5>
                   <p
                     className="card-text"
